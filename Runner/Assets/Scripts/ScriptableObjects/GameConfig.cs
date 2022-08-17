@@ -13,7 +13,10 @@ namespace Eventyr.EndlessRunner.Scripts.ScriptableObjects
         private Vector3 _centerTrackPos;
         [SerializeField]
         private Vector3 _rightTrackPos;
+        [SerializeField]
+        private int _playerHealth;
 
+        public int PlayerHealth => _playerHealth;
         public float PlayerSpeed => _playerSpeed;
         public Vector3 LeftTrackPos => _leftTrackPos;
         public Vector3 CenterTrackPos => _centerTrackPos;

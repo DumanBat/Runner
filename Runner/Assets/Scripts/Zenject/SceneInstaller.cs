@@ -5,6 +5,7 @@ using Eventyr.EndlessRunner.Scripts.CameraService;
 using Eventyr.EndlessRunner.Scripts.Player;
 using Eventyr.EndlessRunner.Scripts.Utils;
 using Eventyr.EndlessRunner.Scripts.Gameplay;
+using Eventyr.EndlessRunner.Scripts.UI;
 
 namespace Eventyr.EndlessRunner.Scripts.Zenject
 {
@@ -17,12 +18,17 @@ namespace Eventyr.EndlessRunner.Scripts.Zenject
         [SerializeField]
         private SwipeDetector _swipeDetector;
         [SerializeField]
+        private ScoreView _scoreViewPrefab;
+        [SerializeField]
+        private GameResultsView _gameResultsViewPrefab;
+        [SerializeField]
         private LevelGenerator _levelGenerator;
         [SerializeField]
         private Platform _platformPrefab;
         [SerializeField]
         private Obstacle _obstaclePrefab;
-
+        [SerializeField]
+        private Coin _coinPrefab;
 
         public override void InstallBindings()
         {
@@ -30,8 +36,12 @@ namespace Eventyr.EndlessRunner.Scripts.Zenject
             BindInputService();
             BindLevelGenerator();
             BindObstacleGenerator();
+            BindCoinGenerator();
+            BindScoreController();
+            BindGameResults();
             BindPlatformPool();
             BindObstaclePool();
+            BindCoinsPool();
         }
 
         private void BindCamera()
@@ -67,6 +77,34 @@ namespace Eventyr.EndlessRunner.Scripts.Zenject
             Container.BindFactory<ObstacleGenerator, ObstacleGenerator.Factory>();
         }
 
+        private void BindCoinGenerator()
+        {
+            Container.BindFactory<CoinsGenerator, CoinsGenerator.Factory>();
+        }
+
+        private void BindScoreController()
+        {
+            var scoreView = Container.InstantiatePrefabForComponent<ScoreView>(_scoreViewPrefab);
+
+            Container.Bind<IScoringServiceView>()
+                .FromInstance(scoreView)
+                .AsSingle();
+
+            Container.Bind<IScoringService>()
+                .To<ScoreController>()
+                .FromInstance(new ScoreController(scoreView))
+                .AsSingle();
+        }
+
+        private void BindGameResults()
+        {
+            var gameResults = Container.InstantiatePrefabForComponent<GameResultsView>(_gameResultsViewPrefab);
+
+            Container.Bind<IGameResults>()
+                .FromInstance(gameResults)
+                .AsSingle();
+        }
+
         private void BindPlatformPool()
         {
             Container.BindMemoryPool<Platform, Platform.Pool>()
@@ -79,6 +117,13 @@ namespace Eventyr.EndlessRunner.Scripts.Zenject
             Container.BindMemoryPool<Obstacle, Obstacle.Pool>()
                 .WithInitialSize(3)
                 .FromComponentInNewPrefab(_obstaclePrefab);
+        }
+
+        private void BindCoinsPool()
+        {
+            Container.BindMemoryPool<Coin, Coin.Pool>()
+                .WithInitialSize(3)
+                .FromComponentInNewPrefab(_coinPrefab);
         }
     }
 }

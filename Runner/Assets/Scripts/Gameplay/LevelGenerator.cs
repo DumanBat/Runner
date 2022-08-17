@@ -67,6 +67,7 @@ namespace Eventyr.EndlessRunner.Scripts.Gameplay
             var platformConfig = _platformConfigs[Random.Range(0, _platformConfigs.Count)];
             var platform = SpawnPlatform(platformConfig);
             platform.ObstacleGenerator.SpawnObstacles();
+            platform.CoinsGenerator.SpawnCoins();
         }
 
         public Platform SpawnPlatform(PlatformConfig platformConfig)
@@ -80,6 +81,18 @@ namespace Eventyr.EndlessRunner.Scripts.Gameplay
             _lastPlatform = platform;
             _spawnedPlatforms.Add(platform);
             return platform;
+        }
+
+        public void Unload()
+        {
+            foreach (var spawnedPlatform in _spawnedPlatforms)
+            {
+                spawnedPlatform.Unload();
+                _platformPool.Despawn(spawnedPlatform);
+            }
+
+            _spawnedPlatforms.Clear();
+            _lastPlatform = null;
         }
     }
 }

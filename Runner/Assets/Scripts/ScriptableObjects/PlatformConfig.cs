@@ -21,6 +21,10 @@ namespace Eventyr.EndlessRunner.Scripts.ScriptableObjects
         [SerializeField]
         private int _maxObstacleAmount;
         [SerializeField]
+        private int _minCoinsAmount;
+        [SerializeField]
+        private int _maxCoinsAmount;
+        [SerializeField]
         private List<ObstacleConfig> _obstacleConfigs;
 
         public Mesh Mesh => _mesh;
@@ -29,6 +33,8 @@ namespace Eventyr.EndlessRunner.Scripts.ScriptableObjects
         public Material Material => _material;
         public int MinObstacleAmount => _minObstacleAmount;
         public int MaxObstacleAmount => _maxObstacleAmount;
+        public int MinCoinsAmount => _minCoinsAmount;
+        public int MaxCoinsAmount => _maxCoinsAmount;
         public List<ObstacleConfig> ObstacleConfigs => _obstacleConfigs;
     }
 }

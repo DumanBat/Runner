@@ -13,6 +13,7 @@ namespace Eventyr.EndlessRunner.Scripts.Gameplay
         {
         }
 
+        private Platform _originPlatform;
         private int _minObstacleAmount;
         private int _maxObstacleAmount;
         private List<ObstacleConfig> _obstacleConfigs;
@@ -34,16 +35,17 @@ namespace Eventyr.EndlessRunner.Scripts.Gameplay
 
         public void Init(Platform.ObstacleGenerationData obstacleGenerationData)
         {
+            _originPlatform = obstacleGenerationData.originPlatform;
             _minObstacleAmount = obstacleGenerationData.minObstacleAmount;
             _maxObstacleAmount = obstacleGenerationData.maxObstacleAmount;
             _obstacleConfigs = obstacleGenerationData.obstacleConfigs;
-            _obstacleSpawnPoints = obstacleGenerationData.obstacleSpawnPoints;
+            _obstacleSpawnPoints = obstacleGenerationData.originPlatform.PlatformSpawnPoints;
         }
 
         public void SpawnObstacles()
         {
             var obstacleAmount = Random.Range(_minObstacleAmount, _maxObstacleAmount + 1);
-            var activeObstacleSpawnPoints = new List<Transform>();
+            var activeObstacleSpawnPoints = _originPlatform.ActiveSpawnPoints;
 
             for (int i = 0; i < obstacleAmount; i++)
             {

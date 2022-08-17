@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cb5eaf59c174cb499af7932f175ee84, type: 3}
   m_Name: BasicCube
   m_EditorClassIdentifier: 
-  _obstacleType: 0
+  _damageOnCollide: 1
   _mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   _localPosition: {x: 0, y: 1, z: 0}
   _scale: {x: 2, y: 2, z: 1}

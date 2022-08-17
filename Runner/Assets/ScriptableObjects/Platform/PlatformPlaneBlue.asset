@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76b05e44e740be469b3c144fa9aab71, type: 3}
   m_Name: PlatformPlaneBlue
   m_EditorClassIdentifier: 
-  _platformType: 0
   _mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
   _localPosition: {x: 0, y: 0, z: 0}
   _scale: {x: 1, y: 1, z: 1}
   _material: {fileID: 2100000, guid: d5a3fcc2b3ad8c04ab3931280ea80324, type: 2}
   _minObstacleAmount: 1
   _maxObstacleAmount: 2
+  _minCoinsAmount: 0
+  _maxCoinsAmount: 3
   _obstacleConfigs:
   - {fileID: 11400000, guid: 80a153287e3156d43b4ad832b93438f7, type: 2}
   - {fileID: 11400000, guid: 75ab3bc386d09744787deb448b0c26de, type: 2}

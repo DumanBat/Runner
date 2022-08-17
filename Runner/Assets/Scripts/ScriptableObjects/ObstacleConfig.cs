@@ -9,6 +9,8 @@ namespace Eventyr.EndlessRunner.Scripts.ScriptableObjects
     public class ObstacleConfig : ScriptableObject
     {
         [SerializeField]
+        private int _damageOnCollide;
+        [SerializeField]
         private Mesh _mesh;
         [SerializeField]
         private Vector3 _localPosition;
@@ -17,6 +19,7 @@ namespace Eventyr.EndlessRunner.Scripts.ScriptableObjects
         [SerializeField]
         private Material _material;
 
+        public int DamageOnCollide => _damageOnCollide;
         public Mesh Mesh => _mesh;
         public Vector3 LocalPosition => _localPosition;
         public Vector3 Scale => _scale;

@@ -16,3 +16,4 @@ MonoBehaviour:
   _leftTrackPos: {x: -2.5, y: 0, z: 0}
   _centerTrackPos: {x: 0, y: 0, z: 0}
   _rightTrackPos: {x: 2.5, y: 0, z: 0}
+  _playerHealth: 1

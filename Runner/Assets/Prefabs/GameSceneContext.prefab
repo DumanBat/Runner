@@ -82,9 +82,12 @@ MonoBehaviour:
   _cameraPrefab: {fileID: 360664322963823074, guid: d66c2a8c1a55a33418774ab1d2b40274, type: 3}
   _desktopInput: {fileID: 6299382252011266380, guid: 7c747c349c8972a42aa59ebe69f339dc, type: 3}
   _swipeDetector: {fileID: 4390590959450117266, guid: 6f98b0bd5429fde429eee74d40149f45, type: 3}
+  _scoreViewPrefab: {fileID: 1111149627500566223, guid: d09bde95be25d214ea1a84e0eadd6340, type: 3}
+  _gameResultsViewPrefab: {fileID: 7454577931833327522, guid: 284eb83f931e7bc4c94a08d6f4814fc2, type: 3}
   _levelGenerator: {fileID: -4721482287608898966, guid: 6650b167adc19ac48a0b19c149d0a079, type: 3}
   _platformPrefab: {fileID: 4714919248920966104, guid: dd2b22698451c614c97d2c80c46d76e0, type: 3}
   _obstaclePrefab: {fileID: 4825313238336851540, guid: 9f6a3eef1bc18de4290108c66cce653a, type: 3}
+  _coinPrefab: {fileID: 9215107102095433930, guid: 654d6bc8e4d2ec9499a12a2782f6cd76, type: 3}
 --- !u!114 &8779082265690374351
 MonoBehaviour:
   m_ObjectHideFlags: 0

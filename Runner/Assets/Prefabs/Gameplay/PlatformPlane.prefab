@@ -399,13 +399,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebb7dbfe30fc62842b6ad818b8d84923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minObstacleAmount: 1
-  _maxObstacleAmount: 2
   _nextPlatformspawnPoint: {fileID: 6007128940672744201}
-  _obstaclePrefabs:
-  - {fileID: 4825313238336851540, guid: 9f6a3eef1bc18de4290108c66cce653a, type: 3}
-  - {fileID: 4825313238336851540, guid: a7babc9a0613a8b4aa54e9d3b02bbb82, type: 3}
-  _obstacleSpawnPoints:
+  _platformSpawnPoints:
   - {fileID: 2025802664170763139}
   - {fileID: 3854514962511313992}
   - {fileID: 1315955338561433694}
